@@ -3,17 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E0F7FA"
     tools:context=".GrupoFragment">
 
+    <!-- Contenedor principal -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical"
         android:gravity="center"
-        android:padding="16dp"
-        android:background="#E0F7FA">
+        android:padding="16dp">
 
+        <!-- Título -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,6 +25,7 @@
             android:textColor="#00796B"
             android:layout_marginBottom="16dp" />
 
+        <!-- Nombres de los integrantes -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

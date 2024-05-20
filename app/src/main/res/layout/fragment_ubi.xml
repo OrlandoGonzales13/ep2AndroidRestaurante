@@ -3,12 +3,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#f0f8ff"
     tools:context=".UbiFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- Contenedor principal -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
+        <!-- Contacto -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contacto"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#005b96"
+            android:paddingBottom="8dp"/>
+
+        <!-- Teléfono -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TELÉFONOS"
+            android:textSize="18sp"
+            android:textColor="#005b96"
+            android:paddingBottom="4dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="98765432"
+            android:textSize="16sp"
+            android:textColor="#000000"/>
+
+        <!-- Email -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="EMAIL"
+            android:textSize="18sp"
+            android:textColor="#005b96"
+            android:paddingTop="16dp"
+            android:paddingBottom="4dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="example@gmail.com"
+            android:textSize="16sp"
+            android:textColor="#000000"/>
+
+        <!-- Redes Sociales -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="REDES SOCIALES"
+            android:textSize="18sp"
+            android:textColor="#005b96"
+            android:paddingTop="16dp"
+            android:paddingBottom="4dp"/>
+
+        <!-- Iconos de redes sociales -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="8dp">
+
+            <!-- Icono de Facebook -->
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/facebook"
+                android:layout_marginEnd="8dp"/>
+
+            <!-- Icono de Instagram -->
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/instagram"
+                android:layout_marginEnd="8dp"/>
+
+            <!-- Icono de TikTok -->
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/tiktok"/>
+
+        </LinearLayout>
+
+        <!-- Ubicación -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UBICACIÓN"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#005b96"
+            android:paddingTop="16dp"
+            android:paddingBottom="4dp"/>
+
+        <!-- Google Maps -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mapa"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"/>
+
+    </LinearLayout>
 </FrameLayout>
