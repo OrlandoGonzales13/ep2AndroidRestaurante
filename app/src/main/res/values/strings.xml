@@ -4,4 +4,7 @@
     <string name="a_desc">Flavio, chef de 43 años, experto en pescados. Con su habilidad culinaria, transforma simples ingredientes en exquisitas delicias. Apasionado y creativo, Flavio eleva los sabores frescos del mar a nuevas alturas en cada plato que prepara.</string>
     <string name="b_desc">Fernanda, chef argentina de 28 años, maestra de carnes. Su destreza culinaria transforma ingredientes en delicias. Apasionada y creativa, eleva sabores de carne a nuevas alturas, cautivando paladares con cada plato.</string>
     <string name="c_desc">Fernando, chef peruano de 28 años, maestro de pastas. Su destreza culinaria transforma ingredientes en delicias. Apasionado y creativo, eleva sabores de pasta a nuevas alturas, cautivando paladares con cada plato.</string>
+    <string name="ceviche_desc">El ceviche es un plato tradicional peruano hecho con pescado crudo marinado en jugo de limón.</string>
+    <string name="lomo_saltado_desc">El lomo saltado es un plato fusión de la cocina peruana-china, hecho con carne, verduras y papas fritas.</string>
+    <string name="aji_de_gallina_desc">El ají de gallina es un guiso de pollo desmenuzado con una salsa cremosa a base de ají amarillo, nueces y leche.</string>
 </resources>
