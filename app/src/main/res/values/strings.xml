@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">restaurantes</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="a_desc">Flavio, chef de 43 años, experto en pescados. Con su habilidad culinaria, transforma simples ingredientes en exquisitas delicias. Apasionado y creativo, Flavio eleva los sabores frescos del mar a nuevas alturas en cada plato que prepara.</string>
+    <string name="b_desc">Fernanda, chef argentina de 28 años, maestra de carnes. Su destreza culinaria transforma ingredientes en delicias. Apasionada y creativa, eleva sabores de carne a nuevas alturas, cautivando paladares con cada plato.</string>
+    <string name="c_desc">Fernando, chef peruano de 28 años, maestro de pastas. Su destreza culinaria transforma ingredientes en delicias. Apasionado y creativo, eleva sabores de pasta a nuevas alturas, cautivando paladares con cada plato.</string>
 </resources>

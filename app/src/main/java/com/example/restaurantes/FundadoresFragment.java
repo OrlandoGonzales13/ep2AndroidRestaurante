@@ -1,64 +1,58 @@
 package com.example.restaurantes;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FundadoresFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
+
+import java.util.ArrayList;
+
 public class FundadoresFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private ViewPager2 viewPager2; // Declara un ViewPager2 para desplazar las imágenes y descripciones
+    private ArrayList<ViewPagerItem> viewPagerItemArrayList; // Lista de elementos para el ViewPager2
 
     public FundadoresFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FundadoresFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FundadoresFragment newInstance(String param1, String param2) {
-        FundadoresFragment fragment = new FundadoresFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        // Constructor público requerido por Android
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fundadores, container, false);
+        // Inflar el diseño del fragmento
+        View view = inflater.inflate(R.layout.fragment_fundadores, container, false);
+
+        // Inicializar ViewPager2
+        viewPager2 = view.findViewById(R.id.viewpager);
+
+        // Configurar ViewPager2
+        viewPagerItemArrayList = new ArrayList<>(); // Inicializa la lista de elementos
+        int[] images = {R.drawable.a, R.drawable.b, R.drawable.c}; // Array de recursos de imágenes
+        String[] heading = {"Flavio Castrelo", "Fernanda Ariategui", "Fernando Quispe"}; // Nombres de los fundadores
+        String[] desc = {getString(R.string.a_desc), // Descripciones de los fundadores desde los recursos de cadenas
+                getString(R.string.b_desc),
+                getString(R.string.c_desc),};
+
+        // Itera sobre los datos de los fundadores para crear ViewPagerItem y añadirlos a la lista
+        for (int i = 0; i < images.length; i++) {
+            ViewPagerItem viewPagerItem = new ViewPagerItem(images[i], heading[i], desc[i]);
+            viewPagerItemArrayList.add(viewPagerItem);
+        }
+
+        // Crea un adaptador personalizado para ViewPager2 y lo establece
+        VPAdapter vpAdapter = new VPAdapter(viewPagerItemArrayList);
+        viewPager2.setAdapter(vpAdapter);
+
+        // Configura algunas propiedades adicionales de ViewPager2
+        viewPager2.setClipToPadding(false);
+        viewPager2.setClipChildren(false);
+        viewPager2.setOffscreenPageLimit(2);
+        viewPager2.getChildAt(0).setOverScrollMode(View.OVER_SCROLL_NEVER);
+
+        // Devuelve la vista inflada
+        return view;
     }
 }
