@@ -5,10 +5,83 @@
     android:layout_height="match_parent"
     tools:context=".InfoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- ScrollView para hacer el contenido desplazable -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Título -->
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bienvenidos a Nuestro Restaurante"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="#00796B"
+                android:layout_gravity="center"
+                android:paddingBottom="16dp"/>
+
+            <!-- Imagen -->
+            <ImageView
+                android:id="@+id/header_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/restaurant_image"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Sección de Quienes Somos -->
+            <TextView
+                android:id="@+id/who_we_are_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¿Quiénes somos?"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#00796B"
+                android:paddingBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/who_we_are_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Somos un restaurante comprometido con brindar la mejor experiencia culinaria a nuestros clientes. Utilizamos ingredientes frescos y de alta calidad para crear platos deliciosos y memorables. Nuestro equipo de chefs y personal de servicio se esfuerzan por ofrecer un ambiente acogedor y hospitalario."
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textSize="18sp"
+                android:textColor="#004D40"
+                android:paddingBottom="16dp"/>
+
+            <!-- Sección adicional: Nuestro Menú -->
+            <TextView
+                android:id="@+id/menu_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nuestro Menú"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#00796B"
+                android:paddingBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/menu_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descubre nuestra variedad de platos, desde entradas exquisitas hasta postres irresistibles. Nuestro menú incluye opciones para todos los gustos, incluyendo alternativas vegetarianas y sin gluten."
+                android:textAppearance="?attr/textAppearanceBody1"
+                android:textSize="18sp"
+                android:textColor="#004D40"
+                android:paddingBottom="16dp"/>
+
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>

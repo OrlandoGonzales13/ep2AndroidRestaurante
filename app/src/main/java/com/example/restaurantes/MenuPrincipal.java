@@ -29,6 +29,12 @@ public class MenuPrincipal extends AppCompatActivity {
         });
 
         nav = findViewById(R.id.menuNavegation);
+
+        // Cargar InfoFragment al inicio
+        if (savedInstanceState == null) {
+            agregarFragment(new InfoFragment());
+        }
+
         //cada que hay un item seleccionado cambniamops de fragment
         nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
