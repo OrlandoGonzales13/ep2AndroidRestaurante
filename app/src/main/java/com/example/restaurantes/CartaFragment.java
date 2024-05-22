@@ -27,8 +27,10 @@ public class CartaFragment extends Fragment {
 
         // Initialize data
         List<Plato> platosList = new ArrayList<>();
-        platosList.add(new Plato("Arroz con Pollo", "Un delicioso plato de arroz con pollo", R.drawable.plato1));
+        platosList.add(new Plato("Tiradito", "Un delicioso tiradito", R.drawable.plato1));
         platosList.add(new Plato("Ceviche", "Ceviche fresco de pescado", R.drawable.plato2));
+        platosList.add(new Plato("Especialidad", "La especialidad", R.drawable.plato3));
+
         // Añadir más platos según sea necesario
 
         // Set adapter
