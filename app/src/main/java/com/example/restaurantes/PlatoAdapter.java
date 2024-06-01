@@ -30,6 +30,7 @@ public class PlatoAdapter extends RecyclerView.Adapter<PlatoAdapter.PlatoViewHol
         holder.nombreTextView.setText(plato.getNombre());
         holder.descripcionTextView.setText(plato.getDescripcion());
         holder.imagenImageView.setImageResource(plato.getImagenResId());
+        holder.precioTextView.setText(String.format("$%.2f", plato.getPrecio()));
     }
 
     @Override
@@ -41,12 +42,14 @@ public class PlatoAdapter extends RecyclerView.Adapter<PlatoAdapter.PlatoViewHol
         TextView nombreTextView;
         TextView descripcionTextView;
         ImageView imagenImageView;
+        TextView precioTextView;
 
         public PlatoViewHolder(@NonNull View itemView) {
             super(itemView);
             nombreTextView = itemView.findViewById(R.id.nombreTextView);
             descripcionTextView = itemView.findViewById(R.id.descripcionTextView);
             imagenImageView = itemView.findViewById(R.id.imagenImageView);
+            precioTextView = itemView.findViewById(R.id.precioTextView);
         }
     }
 }

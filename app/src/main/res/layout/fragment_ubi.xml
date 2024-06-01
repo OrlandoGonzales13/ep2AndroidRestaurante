@@ -1,117 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UbiFragment">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <!-- Contenedor principal -->
-    <LinearLayout
+    <!-- Contacto -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contacto"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#3E2723"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Teléfono -->
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:text="Teléfono: 98765432"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:drawableStart="@drawable/phone"
+        android:drawablePadding="8dp"
+        android:paddingBottom="8dp"/>
 
-        <!-- Contacto -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Contacto"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="#005b96"
-            android:paddingBottom="8dp"/>
+    <!-- Email -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email: eltroncorestaurante@gmail.com"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:drawableStart="@drawable/email"
+        android:drawablePadding="8dp"
+        android:paddingBottom="8dp"/>
 
-        <!-- Teléfono -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TELÉFONOS"
-            android:textSize="18sp"
-            android:textColor="#005b96"
-            android:paddingBottom="4dp"/>
+    <!-- Redes Sociales -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Redes Sociales"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#3E2723"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="98765432"
-            android:textSize="16sp"
-            android:textColor="#000000"/>
+    <!-- Iconos de redes sociales -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <!-- Email -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="EMAIL"
-            android:textSize="18sp"
-            android:textColor="#005b96"
-            android:paddingTop="16dp"
-            android:paddingBottom="4dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="example@gmail.com"
-            android:textSize="16sp"
-            android:textColor="#000000"/>
-
-        <!-- Redes Sociales -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="REDES SOCIALES"
-            android:textSize="18sp"
-            android:textColor="#005b96"
-            android:paddingTop="16dp"
-            android:paddingBottom="4dp"/>
-
-        <!-- Iconos de redes sociales -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="8dp">
-
-            <!-- Icono de Facebook -->
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/facebook"
-                android:layout_marginEnd="8dp"/>
-
-            <!-- Icono de Instagram -->
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/instagram"
-                android:layout_marginEnd="8dp"/>
-
-            <!-- Icono de TikTok -->
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/tiktok"/>
-
-        </LinearLayout>
-
-        <!-- Ubicación -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="UBICACIÓN"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="#005b96"
-            android:paddingTop="16dp"
-            android:paddingBottom="4dp"/>
-
-        <!-- Google Maps -->
+        <!-- Icono de Facebook -->
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/mapa"
-            android:scaleType="fitXY"
-            android:adjustViewBounds="true"/>
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/facebook"
+            android:layout_marginEnd="16dp"/>
+
+        <!-- Icono de Instagram -->
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/instagram"
+            android:layout_marginEnd="16dp"/>
+
+        <!-- Icono de TikTok -->
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/tiktok"/>
 
     </LinearLayout>
-</FrameLayout>
+
+    <!-- Ubicación -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ubicación"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#3E2723"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Mapa -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/mapa"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"/>
+
+</LinearLayout>

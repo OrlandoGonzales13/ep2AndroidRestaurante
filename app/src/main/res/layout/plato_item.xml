@@ -12,14 +12,31 @@
         android:scaleType="centerCrop"
         android:src="@drawable/plato_imagen_placeholder" />
 
-    <TextView
-        android:id="@+id/nombreTextView"
-        android:layout_width="wrap_content"
+    <!-- LinearLayout horizontal para nombre y precio -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nombre del Plato"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_marginTop="8dp" />
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/nombreTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nombre del Plato"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/precioTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$0.00"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_gravity="end"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/descripcionTextView"
