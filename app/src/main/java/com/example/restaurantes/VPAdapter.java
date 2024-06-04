@@ -25,9 +25,15 @@ public class VPAdapter extends RecyclerView.Adapter<VPAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Inflar el diseño del elemento del ViewPager
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.viewpager_item, parent, false);
+        View view = null;
+        try {
+            // Inflar el diseño del elemento del ViewPager
+            view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.viewpager_item, parent, false);
+        } catch (Exception e) {
+            // Manejar cualquier excepción durante la inflación del diseño
+            System.err.println("Error al inflar el diseño del elemento: " + e.getMessage());
+        }
         // Devuelve una instancia de ViewHolder
         return new ViewHolder(view);
     }
@@ -35,12 +41,17 @@ public class VPAdapter extends RecyclerView.Adapter<VPAdapter.ViewHolder> {
     // Método llamado para mostrar los datos en el ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        // Obtener el elemento ViewPagerItem en la posición actual
-        ViewPagerItem viewPagerItem = viewPagerItemArrayList.get(position);
-        // Establecer la imagen, encabezado y descripción en los elementos de la vista
-        holder.imageView.setImageResource(viewPagerItem.imageID);
-        holder.tcHeading.setText(viewPagerItem.heading);
-        holder.tvDesc.setText(viewPagerItem.description);
+        try {
+            // Obtener el elemento ViewPagerItem en la posición actual
+            ViewPagerItem viewPagerItem = viewPagerItemArrayList.get(position);
+            // Establecer la imagen, encabezado y descripción en los elementos de la vista
+            holder.imageView.setImageResource(viewPagerItem.imageID);
+            holder.tcHeading.setText(viewPagerItem.heading);
+            holder.tvDesc.setText(viewPagerItem.description);
+        } catch (Exception e) {
+            // Manejar cualquier excepción durante el enlace de los datos
+            System.err.println("Error al enlazar los datos en el ViewHolder: " + e.getMessage());
+        }
     }
 
     // Método que devuelve el número total de elementos en el ViewPager
@@ -59,10 +70,15 @@ public class VPAdapter extends RecyclerView.Adapter<VPAdapter.ViewHolder> {
         // Constructor que recibe la vista del elemento
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            // Inicializar los elementos de la vista
-            imageView = itemView.findViewById(R.id.ivimage);
-            tcHeading = itemView.findViewById(R.id.tvHeading);
-            tvDesc = itemView.findViewById(R.id.tvDesc);
+            try {
+                // Inicializar los elementos de la vista
+                imageView = itemView.findViewById(R.id.ivimage);
+                tcHeading = itemView.findViewById(R.id.tvHeading);
+                tvDesc = itemView.findViewById(R.id.tvDesc);
+            } catch (Exception e) {
+                // Manejar cualquier excepción durante la inicialización de los elementos de la vista
+                System.err.println("Error al inicializar los elementos de la vista: " + e.getMessage());
+            }
         }
     }
 }

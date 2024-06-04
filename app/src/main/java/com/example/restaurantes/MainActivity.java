@@ -3,10 +3,9 @@ package com.example.restaurantes;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -21,20 +20,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // EdgeToEdge.enable(this); // Asegúrate de tener esta clase definida o importada
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
+        // Obtener referencias a los botones del layout
         btnInfo = findViewById(R.id.btnInfo);
         btnCarta = findViewById(R.id.btnCarta);
         btnFundadores = findViewById(R.id.btnFundadores);
         btnGrupo = findViewById(R.id.btnGrupo);
         btnUbi = findViewById(R.id.btnUbi);
 
+        // Configurar onClickListeners para cada botón
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnGrupo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)   {
                 agregarFragment(new GrupoFragment());
             }
         });
@@ -71,12 +66,25 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // Método para agregar un fragmento al contenedor
     void agregarFragment(Fragment fragment) {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragmentContainerView, fragment)
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                .addToBackStack(null)
-                .commit();
+        try {
+            // Verificar que el fragmento no sea nulo antes de agregarlo
+            if (fragment != null) {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragmentContainerView, fragment)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                        .addToBackStack(null)
+                        .commit();
+            } else {
+                throw new IllegalArgumentException("El fragmento es nulo");
+            }
+        } catch (Exception e) {
+            // Capturar cualquier excepción que ocurra al reemplazar el fragmento
+            e.printStackTrace();
+            // Mostrar un mensaje de error al usuario usando Toast
+            Toast.makeText(MainActivity.this, "Error al reemplazar el fragmento", Toast.LENGTH_SHORT).show();
+        }
     }
 }

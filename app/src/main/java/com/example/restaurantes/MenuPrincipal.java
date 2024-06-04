@@ -20,48 +20,69 @@ public class MenuPrincipal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // EdgeToEdge.enable(this); // Asegúrate de tener esta clase definida o quítala si no es necesaria
-        setContentView(R.layout.activity_menu_principal);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        try {
+            // Configura el diseño de la actividad
+            setContentView(R.layout.activity_menu_principal);
 
-        nav = findViewById(R.id.menuNavegation);
+            // Configura el listener para ajustar los insets de la ventana
+            ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+                Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+                return insets;
+            });
 
-        // Cargar InfoFragment al inicio
-        if (savedInstanceState == null) {
-            agregarFragment(new InfoFragment());
-        }
+            // Inicializar BottomNavigationView
+            nav = findViewById(R.id.menuNavegation);
 
-        //cada que hay un item seleccionado cambniamops de fragment
-        nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                int itemId = menuItem.getItemId();
-                if (itemId == R.id.itemFragmentInfo) {
-                    agregarFragment(new InfoFragment());
-                } else if (itemId == R.id.itemFragmentFundadores) {
-                    agregarFragment(new FundadoresFragment());
-                } else if (itemId == R.id.itemFragmentCarta) {
-                    agregarFragment(new CartaFragment());
-                } else if (itemId == R.id.itemFragmentUbi) {
-                    agregarFragment(new UbiFragment());
-                } else if (itemId == R.id.itemFragmentGrupo) {
-                    agregarFragment(new GrupoFragment());
-                }
-                return true;
+            // Cargar InfoFragment al inicio si savedInstanceState es nulo
+            if (savedInstanceState == null) {
+                agregarFragment(new InfoFragment());
             }
-        });
+
+            // Configurar el listener para cambiar de fragmento cuando se selecciona un ítem en la navegación
+            nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                    try {
+                        // Manejar la selección de ítems en la navegación
+                        int itemId = menuItem.getItemId();
+                        if (itemId == R.id.itemFragmentInfo) {
+                            agregarFragment(new InfoFragment());
+                        } else if (itemId == R.id.itemFragmentFundadores) {
+                            agregarFragment(new FundadoresFragment());
+                        } else if (itemId == R.id.itemFragmentCarta) {
+                            agregarFragment(new CartaFragment());
+                        } else if (itemId == R.id.itemFragmentUbi) {
+                            agregarFragment(new UbiFragment());
+                        } else if (itemId == R.id.itemFragmentGrupo) {
+                            agregarFragment(new GrupoFragment());
+                        }
+                    } catch (Exception e) {
+                        // Manejar cualquier excepción que ocurra durante la selección del ítem
+                        System.err.println("Error al cambiar de fragmento: " + e.getMessage());
+                    }
+                    return true;
+                }
+            });
+        } catch (Exception e) {
+            // Manejar cualquier excepción que ocurra durante la creación de la actividad
+            System.err.println("Error durante la creación de la actividad: " + e.getMessage());
+        }
     }
 
+    // Método para agregar y reemplazar fragmentos
     void agregarFragment(Fragment fragment) {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fcv, fragment)
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                .addToBackStack(null)
-                .commit();
+        try {
+            // Realiza la transacción del fragmento
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fcv, fragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                    .addToBackStack(null)
+                    .commit();
+        } catch (Exception e) {
+            // Manejar cualquier excepción que ocurra durante la transacción de fragmentos
+            System.err.println("Error al agregar el fragmento: " + e.getMessage());
+        }
     }
 }
